@@ -1,0 +1,280 @@
+body {
+    margin: 10px;
+}
+
+p{
+    color: yellowgreen;
+}
+
+
+/* Basic Selector */
+a[href="https://openai.com/index/chatgpt/"] {
+    color: orange;
+}
+
+a[href*="google"] {
+    color: pink;
+}
+
+/* ^ - starts with and $ - ends with */
+a[href^="https"][href$=".com/"] {
+    color: aqua;
+}
+
+
+/* Relational Selector */
+#products p{
+    color: brown;
+}
+
+/* need the first para color not the second one */
+#product > p{
+    color: purple;
+}
+
+/* it selects the para element which comes imediate after the product section */
+#product + p{
+    color: rgb(23, 0, 128);
+}
+
+/* it selects all the para element which comes after the products section
+#product ~ p{
+    color: rgb(42, 165, 108);
+} */
+
+/* Pseudo-class Selectors */
+/* only for th first paragraph
+article :first-child {
+    font-size: 140%;
+    font-style: italic;
+} */
+
+
+/* for the heading and the first paragraph */
+article :first-of-type {
+    font-size: 140%;
+    font-style: italic;
+}
+
+/* only for the first paragraph when there is any heading
+article p:first-of-type {
+    font-size: 140%;
+    font-style: italic;
+} */
+
+/* only for the last paragraph (can use last-child or last-of-child)
+article p:last-of-type {
+    font-size: 140%;
+    font-weight: bold;
+} */
+
+
+/* for the lat para and the link
+article :last-of-type {
+    font-size: 140%;
+    font-weight: bold;
+} */
+
+
+/* only for the last link */
+article :last-child {
+    font-size: 140%;
+    font-weight: bold;
+}
+
+/* for odd number */
+ul li:nth-child(odd) {
+    color: deeppink;
+}
+
+/* for even number */
+ul li:nth-child(even) {
+    color: darkcyan;
+}
+
+/* for any specific number in the list
+ul li:nth-child(3n) {
+    color: darkcyan;
+} */
+
+a:visited, a:link {
+    color: darkkhaki;
+}
+
+
+a:hover, a:focus {
+    color: deeppink;
+}
+
+/* Pseudo-element Selectors */
+#element p{
+    color: black;
+}
+/* for the first letter of the para */
+#element::first-letter {
+    font-size: 500%;
+    font-weight: bold;
+}
+
+/* for the first line of the para */
+#element::first-line {
+    font-size: 240%;
+    font-weight: bold;
+}
+
+/* to chage the backgroung color on selection on the paragraph 
+#element::selection {
+    background-color: palevioletred;
+} */
+
+/* to chage the backgroung color on selection of anywhwre in the page */
+::selection {
+    background-color: palevioletred;
+}
+
+/* for inserting some content before the content of an element */
+#element::before {
+    content: "....";
+    display: block;/*(paragraph starts from a new line) */
+}
+
+/* for inserting some content after the content of an element */
+#element::after {
+    content: "....";
+    display: block;/*(paragraph starts from a new line) */
+}
+
+/* Selectors specificity */
+/* how to use important key word afer having les specificity */
+/* h1{
+    color: aquamarine !important;
+} */
+
+.highlight{
+    color: deeppink;
+}
+
+#select{
+    color: blueviolet;
+}
+
+.highlight#select{
+    color: maroon;
+}
+
+/* another way
+h1t#select{
+    color: maroon;
+} */
+
+.featured #select {
+    color: magenta;
+}
+
+#featured h1#select.highlight{
+    font-style: italic;
+}
+
+/* Inheritance */
+p.strong{
+    color: salmon;
+    border: 1px solid black;
+}
+
+strong{
+    color: initial;
+    border: inherit;
+}
+
+/* Colors */
+.box1 {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(209, 31, 126);
+}
+.box2 {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(209, 31, 126, 0.5);
+}
+.box3 {
+    width: 100px;
+    height: 100px;
+    background-color: #d11f5a;
+}
+.box4 {
+    width: 100px;
+    height: 100px;
+    background-color: hsl(188, 94%, 45%);
+}
+.box5 {
+    width: 100px;
+    height: 100px;
+    background-color: hsla(188, 94%, 45%,0.5);
+}
+
+/* Gradient and borders */
+.box6 {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(orange, yellowgreen);
+    border: 10px solid black;
+}
+.box7 {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(to right, rgb(216, 7, 56), rgb(3, 123, 228));
+    border: 10px dotted black;
+}
+.box8 {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(to bottom right, rgb(232, 249, 0), rgb(3, 123, 228));
+    border: 10px dashed black;
+}
+.box9 {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(65deg, rgb(10, 239, 227), rgb(228, 3, 149), tomato);
+    border: 10px dashed black;
+    border-top: 20px solid black;
+}
+.box10 {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(white, orange);
+    border: 10px dashed black;
+    border-width: 10px 20px 10px 20px; /*trbl*/
+}
+.box11 {
+    width: 300px;
+    height: 100px;
+    background: radial-gradient(white, orange);
+    border: 10px solid black;
+    border-radius: 50px;
+}
+.box12 {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, white, orange);
+    border: 10px solid black;
+    border-radius: 100%;
+}
+.box13 {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at top left, white, orange);
+    box-shadow: 10px 10px 10px grey;
+}
+.box14 {
+    width: 300px;
+    height: 100px;
+    background: rgb(115, 107, 231);
+    background: linear-gradient(35deg, rgba(115, 107, 231, 1)0%, rgba(225, 107, 21, 1)91%);
+    box-shadow: 0 0 30px black;
+}
+
+h1{ 
+    color: white;
+    text-shadow: 3px 3px 5px black;
+}
